@@ -22,14 +22,52 @@ All fask app run on port 5000 by default, to run multiple apps, define other por
 
 
 Jupyter Lab:
-Jupyter NOtebook is designed specifically for data analysis and to work with pandas and instead of py files it created ipynb files
+
+Jupyter Notebook is designed specifically for data analysis and to work with pandas and instead of py files it created ipynb files
 jupyter.org/install for instructions
 To install:
-go to command prompt and enter your python interpreter like this: py 3.12 -m pip install jupyterlab
+go to command prompt and enter your python interpreter like this: py -3.12 -m pip install jupyterlab
 
 To run:
 Create a folder -> right click -> open in terminal -> jupyter-lab -> create a jupyter document
 
+
 Keyboard Shortcuts:
-esc - get out of code block
-b - create a new code block
+esc - get out of cell
+b - create a new cell below
+a - create a new cell above
+m - convert to markdown cell (for commenting)
+cc - copy cell
+v - paste cell
+dd - delete
+
+alt+enter - execute the cell and create a new one below
+
+
+
+Pandas:
+
+skiprows argument - eg skiprows=20
+parse_dates argument - eg parse_dates=["columnname that has dates"]
+
+series object - when there is one column only. eg df["columnname"]
+.mean method - applies mean to a series
+.max or .min method - gets max or min values from the series
+.squeeze method - gets the actual value from a cell
+
+
+dataframe object - multiple columns. eg eg df[["columnname1", "columnname2"]]
+.columns method - display column names
+.loc method - an instance of df (doesnt change original) by taking a condition or coordinates. condition eg df.loc[df["columnname"] != value] , coordinate eg df.loc[index, column name]
+.mask method - stores the values to remove. Eg df["columnname"].mask(df["columnname2"] == value, value to be replaced with)
+
+
+
+Matplotlib:
+.hist - histogram
+.plot - takes x coordinate, y coordinate and size of plot. Eg. df.plot(x="columnname", y="columnname2", figsize=(width, height))
+
+
+
+Numpy:
+.nan method - symbolizes none values
