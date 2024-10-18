@@ -76,3 +76,9 @@ Numpy:
 
 Creating an API:
 zfill the file name from the url
+
+
+
+{{variable|safe}}
+redner_template variable
+df to_html()

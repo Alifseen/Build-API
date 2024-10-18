@@ -8,10 +8,18 @@ import pandas as pd
 app = Flask(__name__)
 
 
+## 11. We load the file with station names and ids and extract only that from the complete file
+df2 = pd.read_csv(r"D:\Downloads\European_weather_data-all\stations.txt", skiprows=17)
+df2 = df2[["STAID","STANAME                                 "]]
+
 ## 3. Created a home page by routing a link to render an HTML file in templates folder
 @app.route("/")
 def home():
-    return render_template("Home.html")
+    ## 13. Convert dataframe into an HTML table
+    df_to_html = df2.to_html()
+
+    ## 12. load the table into the html file using a variable
+    return render_template("Home.html", station_table=df_to_html)
 
 
 ## 5. Created an endpoint to return a dictionary with temperature values from data
