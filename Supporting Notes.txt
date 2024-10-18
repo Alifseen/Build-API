@@ -71,3 +71,8 @@ Matplotlib:
 
 Numpy:
 .nan method - symbolizes none values
+
+
+
+Creating an API:
+zfill the file name from the url
