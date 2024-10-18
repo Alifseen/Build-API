@@ -19,7 +19,8 @@ Use if __name__ == __main__ conditional to run app, so that it only runs when it
 
 All fask app run on port 5000 by default, to run multiple apps, define other port in run method. E.g. app.run(port=5001)
 
-
+You can inject HTML to an HTML file by storing HTML code in a variable and assigning that variable to another variable in render_template. Eg. render_template("html.html", variable=variable_with_HTML_code)
+Then simply add the variable in HTML file where you want it to be injected with keyword "safe" for it to be rendered by flask. eg. {{variable|safe}}
 
 Jupyter Lab:
 
@@ -54,13 +55,15 @@ series object - when there is one column only. eg df["columnname"]
 .mean method - applies mean to a series
 .max or .min method - gets max or min values from the series
 .squeeze method - gets the actual value from a cell
+.astype - read a column as another datatype
 
 
 dataframe object - multiple columns. eg eg df[["columnname1", "columnname2"]]
 .columns method - display column names
 .loc method - an instance of df (doesnt change original) by taking a condition or coordinates. condition eg df.loc[df["columnname"] != value] , coordinate eg df.loc[index, column name]
 .mask method - stores the values to remove. Eg df["columnname"].mask(df["columnname2"] == value, value to be replaced with)
-
+.to_html() - convert dataframe to html table
+.to_dict() - convert dataframe to dict, to get 1 dict per row add (orient="records")
 
 
 Matplotlib:
@@ -74,11 +77,9 @@ Numpy:
 
 
 
-Creating an API:
-zfill the file name from the url
+string method:
+.zfill() -  the file name from the url
 
 
-
-{{variable|safe}}
-redner_template variable
-df to_html()
+rest API
+only dictionary or list are allowed to be returned in REST Api since it only accepts JSON

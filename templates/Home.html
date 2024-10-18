@@ -7,8 +7,10 @@
 <body>
 <h1>Weather Data API</h1>
 <p>Endpoint Format: http://127.0.0.1:5000/api/v1/station/date</p>
-<p>Endpoint Example: http://127.0.0.1:5000/api/v1/10/1988-10-24</p>
-<!--15. include the variable created in python file under curly brackets, "|safe" renders the table -->
+<p>Endpoint Example - One Station, on a single date: http://127.0.0.1:5000/api/v1/10/1988-10-24</p>
+<p>Endpoint Example - One Station, all dates : http://127.0.0.1:5000/api/v1/10</p>
+<p>Endpoint Example - One Station, on a single year: http://127.0.0.1:5000/api/v1/annual/10/1988</p>
+<!--14. include the variable created in python file under curly brackets, "|safe" renders the table -->
 <p>{{station_table|safe}}</p>
 </body>
 </html>
