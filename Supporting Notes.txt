@@ -1,0 +1,20 @@
+Flask:
+Flask runs a webapp created with html/css through a python file
+
+@app.route("/linkpath") is used to point and open different pages. It requires defining a function that returns something, which can be html page, or dictionary etc.
+
+To return a page, use render template method and point to a file templates folder
+
+@app.route can take values from the url using the <> symbol and add them to the function defined below it.
+For example abc.com/<dynamic>
+def foo(dynamic)
+    ...
+
+Note that images are not rendered unless stored in a folder called static and the html img src using this syntax:
+img src "{{url_for 'static', filename='imagename.type'}}"
+
+use app.run(debug=True) to run the app and use debug set to True to be able to see any errors in python file on the webpage
+
+Use if __name__ == __main__ conditional to run app, so that it only runs when it is called by itself. Be sure to define the app name to __name__
+
+All fask app run on port 5000 by default, to run multiple apps, define other port in run method. E.g. app.run(port=5001)
