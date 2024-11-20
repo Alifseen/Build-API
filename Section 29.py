@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 ## 11. We load the file with station names and ids and extract only that from the complete file
-df2 = pd.read_csv(r"D:\Downloads\European_weather_data-all\stations.txt", skiprows=17)
+df2 = pd.read_csv("European_weather_data-100/stations.txt", skiprows=17)
 df2 = df2[["STAID","STANAME                                 "]]
 
 ## 3. Created a home page by routing a link to render an HTML file in templates folder
@@ -26,7 +26,7 @@ def home():
 @app.route("/api/v1/<station>/<date>")  ## Dynamically get the station and date from url
 def endpoint(station, date):
     ## 6. read the file from a folder containing 6500 files for each station, format the filepath string to dynamically get station id from url
-    df = pd.read_csv(r"D:\Downloads\European_weather_data-all\TG_STAID" + station.zfill(6) + ".txt",
+    df = pd.read_csv("European_weather_data-100/TG_STAID" + station.zfill(6) + ".txt",
                      ## 7. skip 20 rows, since we opened a txt file which has text in first 20 lines, csv starts from line 21
                      skiprows=20,
                      ## 8. instruct pandas to read the column named "DATE" as date
@@ -41,7 +41,7 @@ def endpoint(station, date):
 ## 14. Add an endpoint for one station all values
 @app.route("/api/v1/<station>")
 def endpoint_all(station):
-    df = pd.read_csv(r"D:\Downloads\European_weather_data-all\TG_STAID" + station.zfill(6) + ".txt",
+    df = pd.read_csv("European_weather_data-100/TG_STAID" + station.zfill(6) + ".txt",
                      skiprows=20,
                      parse_dates=["    DATE"])
     ## 15. Convert dataframe to dictionary since REST API only returns JSON (list and dictionaries)
@@ -53,7 +53,7 @@ def endpoint_all(station):
 @app.route("/api/v1/annual/<station>/<year>")  ## Since dynamically both this and the one station one date urls are same, we need to add "annual" to static part of the url
 def endpoint_annual(station, year):
     ## 17. dont parse date, since we will use the str.startswith method to match the data
-    df = pd.read_csv(r"D:\Downloads\European_weather_data-all\TG_STAID" + station.zfill(6) + ".txt",
+    df = pd.read_csv("European_weather_data-100/TG_STAID" + station.zfill(6) + ".txt",
                      skiprows=20)
     ## 18. convert column to str and uses str method from series to use startswith string method to check the year after converting year int to str as well
     df["    DATE"] = df["    DATE"].astype(str)  ## this series method converts datatype

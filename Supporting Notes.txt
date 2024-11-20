@@ -22,29 +22,6 @@ All fask app run on port 5000 by default, to run multiple apps, define other por
 You can inject HTML to an HTML file by storing HTML code in a variable and assigning that variable to another variable in render_template. Eg. render_template("html.html", variable=variable_with_HTML_code)
 Then simply add the variable in HTML file where you want it to be injected with keyword "safe" for it to be rendered by flask. eg. {{variable|safe}}
 
-Jupyter Lab:
-
-Jupyter Notebook is designed specifically for data analysis and to work with pandas and instead of py files it created ipynb files
-jupyter.org/install for instructions
-To install:
-go to command prompt and enter your python interpreter like this: py -3.12 -m pip install jupyterlab
-
-To run:
-Create a folder -> right click -> open in terminal -> jupyter-lab -> create a jupyter document
-
-
-Keyboard Shortcuts:
-esc - get out of cell
-b - create a new cell below
-a - create a new cell above
-m - convert to markdown cell (for commenting)
-cc - copy cell
-v - paste cell
-dd - delete
-
-alt+enter - execute the cell and create a new one below
-
-
 
 Pandas:
 
